@@ -1,7 +1,36 @@
 import { LANGUAGES } from "./languages.js";
 import { initI18n, setLanguage, getStoredLanguage } from "./i18n.js";
+import { THEMES } from "./themes.js";
+import { initTheme, setTheme, getStoredTheme } from "./theme.js";
 
 document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+/* Generic picker open/close helpers */
+const openPickers = new Set();
+
+function openPicker(el, toggle) {
+  el.classList.add("open");
+  toggle.setAttribute("aria-expanded", "true");
+  openPickers.add(el);
+}
+function closePicker(el, toggle) {
+  el.classList.remove("open");
+  toggle.setAttribute("aria-expanded", "false");
+  openPickers.delete(el);
+}
+document.addEventListener("click", (e) => {
+  openPickers.forEach((el) => {
+    if (!el.contains(e.target)) {
+      const toggle = el.querySelector(".picker-toggle");
+      closePicker(el, toggle);
+    }
+  });
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    openPickers.forEach((el) => closePicker(el, el.querySelector(".picker-toggle")));
+  }
+});
 
 /* Language picker */
 const langPicker = document.getElementById("lang-picker");
@@ -21,7 +50,7 @@ function renderLangMenu(activeCode) {
     btn.innerHTML = `<span>${lang.label}</span>`;
     btn.addEventListener("click", async () => {
       await setLanguage(lang.code);
-      closeLangMenu();
+      closePicker(langPicker, langToggle);
     });
     li.appendChild(btn);
     langMenu.appendChild(li);
@@ -30,28 +59,54 @@ function renderLangMenu(activeCode) {
   langCurrent.textContent = active ? active.short : activeCode.toUpperCase();
 }
 
-function openLangMenu() {
-  langPicker.classList.add("open");
-  langToggle.setAttribute("aria-expanded", "true");
-}
-function closeLangMenu() {
-  langPicker.classList.remove("open");
-  langToggle.setAttribute("aria-expanded", "false");
-}
 langToggle.addEventListener("click", () => {
-  langPicker.classList.contains("open") ? closeLangMenu() : openLangMenu();
+  langPicker.classList.contains("open") ? closePicker(langPicker, langToggle) : openPicker(langPicker, langToggle);
 });
-document.addEventListener("click", (e) => {
-  if (!langPicker.contains(e.target)) closeLangMenu();
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeLangMenu();
-});
-
 document.addEventListener("languagechange", (e) => renderLangMenu(e.detail.code));
 
 renderLangMenu(getStoredLanguage());
 initI18n();
+
+/* Theme picker */
+const themePicker = document.getElementById("theme-picker");
+const themeToggle = document.getElementById("theme-picker-toggle");
+const themeMenu = document.getElementById("theme-picker-menu");
+const themeCurrent = document.getElementById("theme-picker-current");
+const themeSwatch = document.getElementById("theme-picker-swatch");
+
+function swatchBackground(colors) {
+  return `linear-gradient(135deg, ${colors[0]} 50%, ${colors[1]} 50%)`;
+}
+
+function renderThemeMenu(activeCode) {
+  themeMenu.innerHTML = "";
+  THEMES.forEach((theme) => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("role", "option");
+    btn.setAttribute("aria-selected", String(theme.code === activeCode));
+    btn.dataset.theme = theme.code;
+    btn.innerHTML = `<span class="swatch-dot" style="background:${swatchBackground(theme.swatch)}"></span><span>${theme.label}</span>`;
+    btn.addEventListener("click", () => {
+      setTheme(theme.code);
+      closePicker(themePicker, themeToggle);
+    });
+    li.appendChild(btn);
+    themeMenu.appendChild(li);
+  });
+  const active = THEMES.find((t) => t.code === activeCode) || THEMES[0];
+  themeCurrent.textContent = active.label;
+  themeSwatch.style.background = swatchBackground(active.swatch);
+}
+
+themeToggle.addEventListener("click", () => {
+  themePicker.classList.contains("open") ? closePicker(themePicker, themeToggle) : openPicker(themePicker, themeToggle);
+});
+document.addEventListener("themechange", (e) => renderThemeMenu(e.detail.code));
+
+renderThemeMenu(getStoredTheme());
+initTheme();
 
 /* Mobile nav */
 const header = document.querySelector(".site-header");

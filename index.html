@@ -9,6 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("ahm_theme");
+        if (theme === "ocean") document.documentElement.setAttribute("data-theme", "ocean");
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -82,12 +90,21 @@
       </nav>
 
       <div class="header-actions">
-        <div class="lang-picker" id="lang-picker">
-          <button type="button" class="lang-picker-toggle" id="lang-picker-toggle" aria-haspopup="listbox" aria-expanded="false">
-            <span id="lang-picker-current">EN</span>
-            <svg width="14" height="14"><use href="#icon-chevron"/></svg>
+        <div class="picker" id="theme-picker">
+          <button type="button" class="picker-toggle" id="theme-picker-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Picker">
+            <span class="swatch-dot" id="theme-picker-swatch"></span>
+            <span id="theme-picker-current">Terracotta</span>
+            <svg class="chevron" width="14" height="14"><use href="#icon-chevron"/></svg>
           </button>
-          <ul class="lang-picker-menu" id="lang-picker-menu" role="listbox"></ul>
+          <ul class="picker-menu" id="theme-picker-menu" role="listbox" aria-label="Theme Picker"></ul>
+        </div>
+
+        <div class="picker" id="lang-picker">
+          <button type="button" class="picker-toggle" id="lang-picker-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Language Picker">
+            <span id="lang-picker-current">EN</span>
+            <svg class="chevron" width="14" height="14"><use href="#icon-chevron"/></svg>
+          </button>
+          <ul class="picker-menu" id="lang-picker-menu" role="listbox"></ul>
         </div>
 
         <a href="#contact" class="btn btn-primary btn-small" data-i18n="nav.cta">Get in touch</a>
