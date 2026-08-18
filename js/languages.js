@@ -1,9 +1,10 @@
 // Registry of supported languages.
-// To add a new language: add an entry here, then create locales/<code>.json
-// with the same keys as locales/en.json.
-export const LANGUAGES = [
+// To add a new language: add an entry here, create locales/<code>.js
+// (see locales/en.js for the format) with the same keys as locales/en.js,
+// and add a <script src="locales/<code>.js"></script> tag in index.html.
+window.AHM = window.AHM || {};
+window.AHM.LANGUAGES = [
   { code: "en", label: "English", short: "EN" },
   { code: "el", label: "Ελληνικά", short: "EL" },
 ];
-
-export const DEFAULT_LANGUAGE = "en";
+window.AHM.DEFAULT_LANGUAGE = "en";

@@ -1,4 +1,6 @@
-{
+window.AHM = window.AHM || {};
+window.AHM.locales = window.AHM.locales || {};
+window.AHM.locales.en = {
   "meta": {
     "title": "Athens Home Management — Property care for owners abroad",
     "description": "Monthly inspections, photo reports, bill handling and maintenance coordination for Athens properties owned by people who live abroad. €99/month."
@@ -124,4 +126,4 @@
     "tagline": "Property care in Athens for owners abroad.",
     "rights": "All rights reserved."
   }
-}
+};

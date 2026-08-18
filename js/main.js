@@ -1,7 +1,11 @@
-import { LANGUAGES } from "./languages.js";
-import { initI18n, setLanguage, getStoredLanguage } from "./i18n.js";
-import { THEMES } from "./themes.js";
-import { initTheme, setTheme, getStoredTheme } from "./theme.js";
+var LANGUAGES = window.AHM.LANGUAGES;
+var THEMES = window.AHM.THEMES;
+var setLanguage = window.AHM.i18n.setLanguage;
+var getStoredLanguage = window.AHM.i18n.getStoredLanguage;
+var initI18n = window.AHM.i18n.initI18n;
+var setTheme = window.AHM.theme.setTheme;
+var getStoredTheme = window.AHM.theme.getStoredTheme;
+var initTheme = window.AHM.theme.initTheme;
 
 document.getElementById("footer-year").textContent = new Date().getFullYear();
 
@@ -48,8 +52,8 @@ function renderLangMenu(activeCode) {
     btn.setAttribute("aria-selected", String(lang.code === activeCode));
     btn.dataset.lang = lang.code;
     btn.innerHTML = `<span>${lang.label}</span>`;
-    btn.addEventListener("click", async () => {
-      await setLanguage(lang.code);
+    btn.addEventListener("click", () => {
+      setLanguage(lang.code);
       closePicker(langPicker, langToggle);
     });
     li.appendChild(btn);
