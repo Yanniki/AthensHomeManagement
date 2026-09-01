@@ -109,7 +109,7 @@ window.AHM.locales.el = {
         "yannis": "Συνιδρυτής & Πωλήσεις",
         "iliana": "Συνιδρύτρια & Marketing",
         "christos": "Λειτουργίες",
-        "ares": "Λειτουργίες"
+        "aris": "Λειτουργίες"
       }
     }
   },

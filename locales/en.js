@@ -109,7 +109,7 @@ window.AHM.locales.en = {
         "yannis": "Co-founder & Sales",
         "iliana": "Co-founder & Marketing",
         "christos": "Operations",
-        "ares": "Operations"
+        "aris": "Operations"
       }
     }
   },
