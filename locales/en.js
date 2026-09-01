@@ -102,7 +102,16 @@ window.AHM.locales.en = {
   },
   "about": {
     "heading": "Local people, watching over your home",
-    "body": "We're based in Athens. Every inspection is done in person, by someone who knows the city, the buildings, and how to spot a problem before it becomes expensive."
+    "body": "We're based in Athens. Every inspection is done in person, by someone who knows the city, the buildings, and how to spot a problem before it becomes expensive.",
+    "team": {
+      "heading": "Meet the team",
+      "roles": {
+        "yannis": "Co-founder & Sales",
+        "iliana": "Co-founder & Marketing",
+        "christos": "Operations",
+        "ares": "Operations"
+      }
+    }
   },
   "contact": {
     "heading": "Get in touch",
