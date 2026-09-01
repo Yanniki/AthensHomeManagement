@@ -111,7 +111,7 @@ window.AHM.locales.en = {
       "name": "Full name",
       "email": "Email address",
       "area": "Property area in Athens (optional)",
-      "message": "Tell us about your property",
+      "message": "Message (optional)",
       "submit": "Send message"
     },
     "direct": {

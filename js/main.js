@@ -105,15 +105,14 @@ contactForm.addEventListener("submit", (e) => {
   const area = data.get("area") || "";
   const message = data.get("message") || "";
 
-  const subject = `Property enquiry from ${name}`;
+  const subject = `Home management inquiry, email: ${email}`;
   const bodyLines = [
-    message,
-    "",
     `Name: ${name}`,
     `Email: ${email}`,
     area ? `Property area: ${area}` : null,
+    message ? `Message: ${message}` : null,
   ].filter(Boolean);
 
-  const mailto = `mailto:info@athenshomemanagement.gr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  const mailto = `mailto:athenshomemanagement@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
   window.location.href = mailto;
 });
