@@ -40,8 +40,8 @@ window.AHM.locales.en = {
       },
       {
         "icon": "chat",
-        "title": "Photo Reports via WhatsApp",
-        "text": "After every visit you receive a clear photo report sent straight to WhatsApp or your preferred chat app — no logins, no apps to install."
+        "title": "Photo Reports",
+        "text": "After every visit you receive a clear photo report sent to whichever channel you prefer — email, WhatsApp, Viber, or Telegram — no logins, no apps to install."
       },
       {
         "icon": "key",
@@ -84,7 +84,7 @@ window.AHM.locales.en = {
       },
       {
         "title": "We inspect and report",
-        "text": "Every month we visit, photograph, and send a report straight to your WhatsApp."
+        "text": "Every month we visit, photograph, and send a report to whichever channel you prefer."
       },
       {
         "title": "We handle the rest",
