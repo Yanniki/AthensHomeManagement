@@ -13,7 +13,7 @@
     (function () {
       try {
         var theme = localStorage.getItem("ahm_theme");
-        if (theme === "ocean") document.documentElement.setAttribute("data-theme", "ocean");
+        if (theme === "aegean") document.documentElement.setAttribute("data-theme", "aegean");
       } catch (e) {}
     })();
   </script>
@@ -93,18 +93,10 @@
         <div class="picker" id="theme-picker">
           <button type="button" class="picker-toggle" id="theme-picker-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Picker">
             <span class="swatch-dot" id="theme-picker-swatch"></span>
-            <span id="theme-picker-current">Terracotta</span>
+            <span id="theme-picker-current">Santorini Blue</span>
             <svg class="chevron" width="14" height="14"><use href="#icon-chevron"/></svg>
           </button>
           <ul class="picker-menu" id="theme-picker-menu" role="listbox" aria-label="Theme Picker"></ul>
-        </div>
-
-        <div class="picker" id="lang-picker">
-          <button type="button" class="picker-toggle" id="lang-picker-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Language Picker">
-            <span id="lang-picker-current">EN</span>
-            <svg class="chevron" width="14" height="14"><use href="#icon-chevron"/></svg>
-          </button>
-          <ul class="picker-menu" id="lang-picker-menu" role="listbox"></ul>
         </div>
 
         <a href="#contact" class="btn btn-primary btn-small" data-i18n="nav.cta">Get in touch</a>

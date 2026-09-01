@@ -1,7 +1,4 @@
-var LANGUAGES = window.AHM.LANGUAGES;
 var THEMES = window.AHM.THEMES;
-var setLanguage = window.AHM.i18n.setLanguage;
-var getStoredLanguage = window.AHM.i18n.getStoredLanguage;
 var initI18n = window.AHM.i18n.initI18n;
 var setTheme = window.AHM.theme.setTheme;
 var getStoredTheme = window.AHM.theme.getStoredTheme;
@@ -36,39 +33,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* Language picker */
-const langPicker = document.getElementById("lang-picker");
-const langToggle = document.getElementById("lang-picker-toggle");
-const langMenu = document.getElementById("lang-picker-menu");
-const langCurrent = document.getElementById("lang-picker-current");
-
-function renderLangMenu(activeCode) {
-  langMenu.innerHTML = "";
-  LANGUAGES.forEach((lang) => {
-    const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.setAttribute("role", "option");
-    btn.setAttribute("aria-selected", String(lang.code === activeCode));
-    btn.dataset.lang = lang.code;
-    btn.innerHTML = `<span>${lang.label}</span>`;
-    btn.addEventListener("click", () => {
-      setLanguage(lang.code);
-      closePicker(langPicker, langToggle);
-    });
-    li.appendChild(btn);
-    langMenu.appendChild(li);
-  });
-  const active = LANGUAGES.find((l) => l.code === activeCode);
-  langCurrent.textContent = active ? active.short : activeCode.toUpperCase();
-}
-
-langToggle.addEventListener("click", () => {
-  langPicker.classList.contains("open") ? closePicker(langPicker, langToggle) : openPicker(langPicker, langToggle);
-});
-document.addEventListener("languagechange", (e) => renderLangMenu(e.detail.code));
-
-renderLangMenu(getStoredLanguage());
+/* Language picker removed for now — site is English-only. */
 initI18n();
 
 /* Theme picker */
