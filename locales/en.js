@@ -16,7 +16,7 @@ window.AHM.locales.en = {
   "hero": {
     "eyebrow": "Property care in Athens, for owners abroad",
     "headline": "Your Athens property, looked after like it's ours.",
-    "subheadline": "Monthly inspections, damage reports, bill handling and maintenance coordination for owners who live outside Greece. We're not a rental agency — we're a caretaking service.",
+    "subheadline": "Monthly inspections, damage reports, bill handling and maintenance coordination for owners who live outside Greece.",
     "ctaPrimary": "Get in touch",
     "ctaSecondary": "See our services"
   },
