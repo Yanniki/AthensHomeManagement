@@ -94,25 +94,3 @@ document.querySelectorAll(".site-nav a").forEach((link) => {
     navToggle.innerHTML = '<svg width="22" height="22"><use href="#icon-menu"/></svg>';
   });
 });
-
-/* Contact form -> mailto */
-const contactForm = document.getElementById("contact-form");
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = new FormData(contactForm);
-  const name = data.get("name") || "";
-  const email = data.get("email") || "";
-  const area = data.get("area") || "";
-  const message = data.get("message") || "";
-
-  const subject = `Home management inquiry, email: ${email}`;
-  const bodyLines = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    area ? `Property area: ${area}` : null,
-    message ? `Message: ${message}` : null,
-  ].filter(Boolean);
-
-  const mailto = `mailto:athenshomemanagement@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-  window.location.href = mailto;
-});

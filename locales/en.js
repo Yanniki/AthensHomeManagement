@@ -115,19 +115,9 @@ window.AHM.locales.en = {
   },
   "contact": {
     "heading": "Get in touch",
-    "body": "Tell us about your property and we'll get back to you within one business day.",
-    "form": {
-      "name": "Full name",
-      "email": "Email address",
-      "area": "Property area in Athens (optional)",
-      "message": "Message (optional)",
-      "submit": "Send message"
-    },
+    "body": "Reach out and we'll get back to you within one business day.",
     "direct": {
-      "heading": "Or reach us directly",
-      "emailLabel": "Email",
-      "whatsappLabel": "WhatsApp",
-      "phoneLabel": "Phone"
+      "heading": "Reach us directly"
     }
   },
   "footer": {
