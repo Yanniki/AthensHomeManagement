@@ -22,8 +22,7 @@ window.AHM.locales.en = {
   },
   "intro": {
     "heading": "Built for owners who live abroad",
-    "body": "You bought a home, an apartment, or a family property in Athens — but you don't live here. Athens Home Management is your local eyes and hands: we visit, inspect, and take care of the practical things so your property stays in good shape all year round, whether you're in London, New York, or Sydney.",
-    "note": "We don't manage short-term rentals and we don't find tenants. We simply take care of your property, so it's ready whenever you need it."
+    "body": "You bought a home, an apartment, or a family property in Athens — but you don't live here. Athens Home Management is your local eyes and hands: we visit, inspect, and take care of the practical things so your property stays in good shape all year round, whether you're in London, New York, or Sydney."
   },
   "services": {
     "heading": "What we take care of",
